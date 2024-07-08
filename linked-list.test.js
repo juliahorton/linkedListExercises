@@ -133,6 +133,16 @@ describe("removeAt", function() {
     expect(lst.head).toBe(null);
     expect(lst.tail).toBe(null);
   });
+  it("removes and returns node and adjusts nearby nodes", function() {
+    let lst = new LinkedList([1,2,3,4,5]);
+
+    lst.removeAt(3);
+    expect(lst.length).toBe(4);
+    expect(lst.head.val).toBe(1);
+    expect(lst.head.next.val).toBe(2);
+    expect(lst.head.next.next.val).toBe(3);
+    expect(lst.head.next.next.next.val).toBe(5);
+  });
 });
 
 describe("average", function() {
